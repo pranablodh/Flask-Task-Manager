@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "4b2bc473-15c1-4eb6-ab68-def5dd401068",
+		"name": "Flask-Task-Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20567600"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/create/:task_name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"create",
+						":task_name"
+					],
+					"variable": [
+						{
+							"key": "task_name",
+							"value": "demo17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/start/:task_name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"start",
+						":task_name"
+					],
+					"variable": [
+						{
+							"key": "task_name",
+							"value": "demo17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stop Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/stop/:task_name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"stop",
+						":task_name"
+					],
+					"variable": [
+						{
+							"key": "task_name",
+							"value": "demo9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

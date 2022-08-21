@@ -1,11 +1,10 @@
+import atexit
 from flask import Flask, jsonify
 from flask_cors import CORS
-from sqlalchemy import create_engine
-from flask_sqlalchemy import SQLAlchemy
+from apscheduler.schedulers.background import BackgroundScheduler
 from api.routes import tasks
 from api.model.db_model import *
-from dotenv import load_dotenv
-load_dotenv()
+from api.scheduler.queue_flush import *
 
 app = Flask(__name__)
 app.register_blueprint(tasks)
@@ -17,7 +16,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # engine = create_engine(app.config.get('SQLALCHEMY_DATABASE_URI'))
 db.init_app(app)
 with app.app_context():
-    db.create_all()       
+    db.create_all()  
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=clear_queue, trigger="interval", seconds=5)
+scheduler.start()     
+atexit.register(lambda: scheduler.shutdown())
 
 @app.route('/')
 def ping():

@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import jsonify
 from . import tasks
 from . .model.db_model import Task, db
-from sqlalchemy.sql.expression import func 
+from sqlalchemy.sql.expression import func
 
 @tasks.route('/create/<task_name>', methods = ['POST'])
 def create_task(task_name=None):

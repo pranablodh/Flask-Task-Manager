@@ -1,0 +1,8 @@
+__pycache__
+venv
+*.cfg
+*.log
+*.bak
+*.db
+!dashboard_config.cfg
+.vscode
